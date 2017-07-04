@@ -13,7 +13,7 @@
 
   <project remote="abaco" name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" />
 
-  <project remote="abaco" name="mitchellj/meta-abaco.git" path="openembedded/meta-abaco.git">
+  <project remote="abaco" name="mitchellj/meta-abaco-distro.git" path="openembedded/meta-abaco.git">
     <linkfile dest="manage-build" src="../../.repo/manifests/scripts/manage-build"/>
   </project>
 
