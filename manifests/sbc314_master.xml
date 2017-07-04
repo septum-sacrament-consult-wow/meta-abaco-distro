@@ -10,6 +10,7 @@
 
   <project name="openembedded/openembedded-core.git" path="openembedded/oe-core.git" />
   <project name="openembedded/meta-openembedded.git" path="openembedded/meta-oe.git" />
+  <project name="Freescale/meta-freescale.git" path="openembedded/meta-freescale.git" />
 
   <project remote="abaco" name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" />
 
