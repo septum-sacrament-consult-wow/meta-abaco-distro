@@ -4,7 +4,7 @@
   <remote fetch="ssh://git@github.com" name="github" />
   <remote fetch="ssh://git@towgit01" name="abaco" />
 
-  <default remote="github" sync-j="4"revision="master" />
+  <default remote="github" sync-j="4" revision="master" />
 
   <project name="openembedded/bitbake.git" path="openembedded/bitbake.git" />
 
