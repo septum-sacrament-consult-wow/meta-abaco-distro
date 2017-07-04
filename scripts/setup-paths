@@ -1,0 +1,29 @@
+#! /bin/bash
+
+THIS_SCRIPT=$BASH_SOURCE
+
+if [ "$0" = "$THIS_SCRIPT" ]; then
+   echo "Error: This script needs to be sourced. Please run as '. $THIS_SCRIPT'"
+   exit 1
+fi
+
+cwd=$(pwd)
+
+until [[ $(ls openembedded) && $(ls .repo) ]]; do
+	cd ..
+
+	if [[ $(pwd) = "/" ]]
+	then
+		echo "Failed to find build directory"
+		exit 1
+	fi
+done
+
+BUILD_DIR=$(pwd)
+
+cd $cwd
+
+PATH=${BUILD_DIR}/scripts:$PATH
+
+export BUILD_DIR
+export PATH

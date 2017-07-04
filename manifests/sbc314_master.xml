@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote fetch="ssh://git@github.com" name="github" />
+  <remote fetch="ssh://git@towgit01" name="abaco" />
+
+  <default remote="github" sync-j="4"/>
+
+  <project name="openembedded/bitbake.git" path="openembedded/bitbake.git" />
+
+  <project name="openembedded/openembedded-core.git" path="openembedded/oe-core.git" />
+  <project name="openembedded/meta-openembedded.git" path="openembedded/meta-oe.git" />
+
+  <project remote="abaco" name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" />
+
+  <project remote="abaco" name="mitchellj/meta-abaco.git" path="openembedded/meta-abaco.git">
+    <linkfile dest="manage-build" src="../../.repo/manifests/scripts/manage-build"/>
+  </project>
+
+</manifest>

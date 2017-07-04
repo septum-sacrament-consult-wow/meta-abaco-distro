@@ -1,0 +1,23 @@
+#! /bin/bash
+
+script_dir=$(dirname $(readlink -e $BASH_SOURCE))
+
+. ${script_dir}/setup-paths > /dev/null 2>&1
+
+ln -sf $BUILD_DIR/.repo/manifests/scripts $BUILD_DIR/
+
+repo sync
+
+# Set all the git repo branches to track upstream
+$BUILD_DIR/scripts/setup-repos.py --init
+
+# Second repo sync as setup repo checks out branches at the tip
+repo sync
+
+# Delete the git hooks that repo automatically adds
+rm -rf ${BUILD_DIR}/.repo/manifests/.git/hooks/*
+
+# setup the openembedded conf directory
+mkdir -p $BUILD_DIR/openembedded/build/conf
+cp -a $BUILD_DIR/.repo/manifests/conf/* $BUILD_DIR/openembedded/build/conf/
+sed -i "s&##OEROOT##&$BUILD_DIR/openembedded&g" $BUILD_DIR/openembedded/build/conf/bblayers.conf
