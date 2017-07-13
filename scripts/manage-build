@@ -1,0 +1,56 @@
+#! /bin/bash
+
+cwd=$(pwd)
+
+script_dir=$(dirname $(readlink -e $BASH_SOURCE))
+
+cd $script_dir
+
+until ls .repo > /dev/null 2>&1; do
+	cd ..
+
+	if [[ $(pwd) = "/" ]]
+	then
+		echo "Failed to find repo directory"
+		cd $cwd
+		exit 1
+	fi
+done
+
+REPO_DIR=$(pwd)
+
+${script_dir}/resolve-layers.py ${@}
+
+test -e .setup_build || exit 1
+
+. .setup_build > /dev/null
+
+echo ${EXEC} > source_build
+
+${script_dir}/add-layers.py --layers $(printf %s $BBLAYERS)
+
+mv conf/local.conf conf/local.conf.bk
+
+echo "## MACHINE and DISTRO values have been automatically added ##" > conf/local.conf
+echo "## from your manange-build --init script                   ##" >> conf/local.conf
+echo "MACHINE='${MACHINE}'" >> conf/local.conf
+echo "DISTRO='${DISTRO}'" >> conf/local.conf
+echo "DL_DIR='${DL_DIR}'" >> conf/local.conf
+echo "SSTATE_DIR='${SSTATE_DIR}'" >> conf/local.conf
+echo "" >> conf/local.conf
+
+cat conf/local.conf.bk >> conf/local.conf
+rm conf/local.conf.bk
+
+
+cat <<EOF
+
+Your build has been setup, please source the file "source_build" to
+get started.
+
+. ${BUILDDIR}/source_build
+
+
+EOF
+
+mv ${REPO_DIR}/.setup_build ${REPO_DIR}/.setup_run
