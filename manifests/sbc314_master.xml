@@ -15,7 +15,7 @@
   <project remote="abaco" name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" />
 
   <project remote="abaco" name="mitchellj/meta-abaco-distro.git" path="openembedded/meta-abaco-distro.git">
-    <linkfile dest="manage-build" src="../../.repo/manifests/scripts/manage-build"/>
+    <linkfile dest="init-new-build" src="../../.repo/manifests/scripts/init-new-build"/>
   </project>
 
 </manifest>

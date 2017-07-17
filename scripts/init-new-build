@@ -1,33 +1,21 @@
 #! /bin/bash
 
-cwd=$(pwd)
-
 script_dir=$(dirname $(readlink -e $BASH_SOURCE))
 
-cd $script_dir
+. ${script_dir}/internal/setup-paths > /dev/null 2>&1
 
-until ls .repo > /dev/null 2>&1; do
-	cd ..
-
-	if [[ $(pwd) = "/" ]]
-	then
-		echo "Failed to find repo directory"
-		cd $cwd
-		exit 1
-	fi
-done
-
-REPO_DIR=$(pwd)
-
-${script_dir}/resolve-layers.py ${@}
+${script_dir}/internal/gen-oe-setup.py ${@} --base-path ${REPO_DIR}
 
 test -e .setup_build || exit 1
 
 . .setup_build > /dev/null
 
-echo ${EXEC} > source_build
+mv ${REPO_DIR}/.setup_build ${REPO_DIR}/.setup_run
 
-${script_dir}/add-layers.py --layers $(printf %s $BBLAYERS)
+echo ". ${script_dir}/internal/setup-paths > /dev/null 2>&1" > source_build
+echo ${EXEC} >> source_build
+
+${script_dir}/internal/add-layers.py --layers $(printf %s $BBLAYERS)
 
 mv conf/local.conf conf/local.conf.bk
 
@@ -52,5 +40,3 @@ get started.
 
 
 EOF
-
-mv ${REPO_DIR}/.setup_build ${REPO_DIR}/.setup_run

@@ -6,7 +6,8 @@ def main():
 
 	parser = argparse.ArgumentParser(description='Manage the build tree')
 
-	parser.add_argument('--layers', help='Initialise build directory', default='default')
+	parser.add_argument('--layers', help='JSON List of layers to add to build',
+		default='default')
 
 	args = parser.parse_args()
 
@@ -16,7 +17,7 @@ def main():
 
 	if not shutil.which("bitbake-layers"):
 		print_error("missing 'bitbake-layers' command, please ensure "
-			"bitbake environemnt is sourced")
+			"bitbake environment is sourced")
 		exit(1)
 
 	try:

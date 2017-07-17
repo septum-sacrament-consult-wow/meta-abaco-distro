@@ -4,21 +4,30 @@ import subprocess, sys, re, argparse, os, shutil, json
 
 def main():
 
-	parser = argparse.ArgumentParser(description='Manage the build tree')
+	parser = argparse.ArgumentParser(description='Generate an OE setup script')
 
-	parser.add_argument('--init', help='Initialise build directory', default='default')
+	parser.add_argument('--base-path', help='Path to base working directory', default=None)
+	parser.add_argument('--layers-path', help='Path to OE layers directory', default='openembedded'
+)
 	parser.add_argument('--machine', help='Machine name', default='select')
 	parser.add_argument('--distro', help='Distro name', default='select')
-	parser.add_argument('--dl-dir', help='Download directory', default='default')
-	parser.add_argument('--ss-dir', help='Shared state directory', default='default')
+	parser.add_argument('--build-dir', help='Build dir location', default='default')
+	parser.add_argument('--dl-dir', help='Download directory location', default='default')
+	parser.add_argument('--ss-dir', help='Shared state directory location', default='default')
 
 	args = parser.parse_args()
 
-	filepath = os.path.dirname(os.path.realpath(__file__))
-	root_path = os.path.join(filepath, "../", "../", "../")
-	layers_path = os.path.join(filepath, "../", "../", "../", "openembedded")
+	if not args.base_path:
+		print_error("Please provide a base directory for initialising builds")
+		exit(1)
 
+	root_path = args.base_path
 	root_path = os.path.abspath(root_path)
+
+	if not os.path.isabs(args.layers_path):
+		args.layers_path = os.path.join(root_path, args.layers_path)
+
+	layers_path = args.layers_path
 	layers_path = os.path.abspath(layers_path)
 
 	selected_machine = None
@@ -66,9 +75,11 @@ def main():
 
 	print_info("Selected distro: " + selected_distro[1])
 
-	if args.init == "default":
+	if args.build_dir == "default":
 		build_dir = "build-{}".format(selected_machine[1])
 		build_dir = os.path.join(root_path, build_dir)
+	else:
+		build_dir = args.build_dir
 
 	build_dir = os.path.abspath(build_dir)
 	print_info("Selected build dir: " + build_dir)
@@ -158,26 +169,27 @@ def generate_bblayers(layers_path, layer_folder):
 					avail_layers.append((layer_name[0], os.path.abspath(os.path.join(root, "../"))))
 
 	deps = find_layer_deps(layers_path, layer_folder)
-
-	while True:
-		count = len(deps)
-		for dep in deps:
-			for layer in avail_layers:
-				if layer[0] == dep:
-					new_deps = find_layer_deps(layers_path, layer[1])
-					if new_deps:
-						deps.extend(new_deps)
-
-		deps = list(set(deps))
-
-		if count == len(deps):
-			break
-
 	bblayers = []
 
-	for layer in avail_layers:
-		if layer[0] in deps:
-			bblayers.append(layer[1])
+	if deps:
+
+		while True:
+			count = len(deps)
+			for dep in deps:
+				for layer in avail_layers:
+					if layer[0] == dep:
+						new_deps = find_layer_deps(layers_path, layer[1])
+						if new_deps:
+							deps.extend(new_deps)
+
+			deps = list(set(deps))
+
+			if count == len(deps):
+				break
+
+		for layer in avail_layers:
+			if layer[0] in deps:
+				bblayers.append(layer[1])
 
 	return bblayers
 

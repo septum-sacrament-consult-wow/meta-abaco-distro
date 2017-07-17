@@ -14,16 +14,17 @@ until [[ $(ls openembedded) && $(ls .repo) ]]; do
 
 	if [[ $(pwd) = "/" ]]
 	then
-		echo "Failed to find build directory"
+		echo "Failed to find initialised repo directory"
+		cd ${cwd}
 		exit 1
 	fi
 done
 
-BUILD_DIR=$(pwd)
+REPO_DIR=$(pwd)
 
 cd $cwd
 
-PATH=${BUILD_DIR}/scripts:$PATH
+PATH=${REPO_DIR}/.repo/manifests/scripts:$PATH
 
-export BUILD_DIR
+export REPO_DIR
 export PATH
