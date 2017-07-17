@@ -19,8 +19,9 @@ ${script_dir}/internal/add-layers.py --layers $(printf %s $BBLAYERS)
 
 mv conf/local.conf conf/local.conf.bk
 
-echo "## MACHINE and DISTRO values have been automatically added ##" > conf/local.conf
-echo "## from your manange-build --init script                   ##" >> conf/local.conf
+echo "## The following variables have been automatically added from the" > conf/local.conf
+echo "## init-new-build script" >> conf/local.conf
+echo "" >> conf/local.conf
 echo "MACHINE='${MACHINE}'" >> conf/local.conf
 echo "DISTRO='${DISTRO}'" >> conf/local.conf
 echo "DL_DIR='${DL_DIR}'" >> conf/local.conf
