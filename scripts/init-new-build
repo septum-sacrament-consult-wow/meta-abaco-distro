@@ -15,6 +15,8 @@ mv ${REPO_DIR}/.setup_build ${REPO_DIR}/.setup_run
 echo ". ${script_dir}/internal/setup-paths > /dev/null 2>&1" > source_build
 echo ${EXEC} >> source_build
 
+bitbake -p || exit 1
+
 ${script_dir}/internal/add-layers.py --layers $(printf %s $BBLAYERS)
 
 mv conf/local.conf conf/local.conf.bk
@@ -38,6 +40,5 @@ Your build has been setup, please source the file "source_build" to
 get started.
 
 . ${BUILDDIR}/source_build
-
 
 EOF

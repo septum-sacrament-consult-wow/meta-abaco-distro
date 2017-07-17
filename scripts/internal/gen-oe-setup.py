@@ -108,7 +108,9 @@ def main():
 	try:
 		os.makedirs(build_dir)
 	except:
-		print_error("Directory already exists, please remove if restarting build")
+		print_error("Build directory already exists, please remove if restarting build")
+		print_error("or specify an alternative directory with --build-dir")
+		print_error(build_dir)
 		exit(1)
 
 	source_file = open(root_path + "/.setup_build", "w")
