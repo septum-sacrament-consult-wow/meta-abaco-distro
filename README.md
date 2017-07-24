@@ -10,7 +10,7 @@ platforms.
 
 Ensure you have a working copy of the *Repo* tool
 
-``` curl https://storage.googleapis.com/git-repo-downloads/repo > repo && chmod +x repo ```
+    curl https://storage.googleapis.com/git-repo-downloads/repo > repo && chmod +x repo
 
 Initialise your build
 
