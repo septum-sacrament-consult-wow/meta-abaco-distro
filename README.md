@@ -27,13 +27,15 @@ repos checked out.
 
 ### Building
 
-To start a build run ./init-new-build
+To start a build run
+
+    ./init-new-build
 
 ### Releasing
 
 To release, commit all repository changes and run the following command
 
-repo manifest -r -o machine_branch.xml
+    repo manifest -r -o machine_branch.xml
 
 This will generate a new manifest file with the current set of git
 repository commit hashes locked. This file can then be copied to the
