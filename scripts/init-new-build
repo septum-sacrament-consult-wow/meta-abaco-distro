@@ -12,8 +12,8 @@ test -e .setup_build || exit 1
 
 mv ${REPO_DIR}/.setup_build ${REPO_DIR}/.setup_run
 
-echo ". ${script_dir}/internal/setup-paths > /dev/null 2>&1" > source_build
-echo ${EXEC} >> source_build
+echo ". ${script_dir}/internal/setup-paths > /dev/null 2>&1" > SOURCE_THIS
+echo ${EXEC} >> SOURCE_THIS
 
 bitbake -p || exit 1
 
@@ -39,6 +39,6 @@ cat <<EOF
 Your build has been setup, please source the file "source_build" to
 get started.
 
-. ${BUILDDIR}/source_build
+. ${BUILDDIR}/SOURCE_THIS
 
 EOF

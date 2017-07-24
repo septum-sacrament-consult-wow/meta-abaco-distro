@@ -1,4 +1,4 @@
-## Abaco Manifests
+## Abaco Development Manifests Repo
 
 ---
 
@@ -17,11 +17,12 @@ Initialise your build
 ```
 mkdir abaco-build
 cd abaco-build
-python2 ../repo init -u git@towgit01:mitchellj/manifests.git
+python2 ../repo init -u git@towgit01:mitchellj/manifests.git -m manifests/machine_branch.xml
 python2 ../repo sync
-.repo/manifests/scripts/init-build
 rm ../repo
 ```
 
 You should now have a directory heirarchy with all the required Abaco platform
 repos checked out.
+
+To start a build run ./init-new-build
