@@ -16,6 +16,7 @@
 
   <project remote="abaco" name="mitchellj/meta-abaco-distro.git" path="openembedded/meta-abaco-distro.git">
     <linkfile dest="init-new-build" src="../../.repo/manifests/scripts/init-new-build"/>
+    <linkfile dest="scripts" src="../../.repo/manifests/scripts"/>
   </project>
 
 </manifest>
