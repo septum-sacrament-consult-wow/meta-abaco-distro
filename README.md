@@ -25,4 +25,17 @@ rm ../repo
 You should now have a directory heirarchy with all the required Abaco platform
 repos checked out.
 
+### Building
+
 To start a build run ./init-new-build
+
+### Releasing
+
+To release, commit all repository changes and run the following command
+
+repo manifest -r -o machine_branch.xml
+
+This will generate a new manifest file with the current set of git
+repository commit hashes locked. This file can then be copied to the
+manfiest folder with the filename as machine_branch.xml, commited
+and tagged with the release version.
