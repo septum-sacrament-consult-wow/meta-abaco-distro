@@ -6,11 +6,11 @@
   <default remote="github" revision="master" sync-j="4"/>
   
   <project name="Freescale/meta-freescale.git" path="openembedded/meta-freescale.git" revision="54544ad1ff48274463977b14c7872872d770ce33"/>
-  <project name="mitchellj/meta-abaco-distro.git" path="openembedded/meta-abaco-distro.git" remote="abaco" revision="4a1065139c7ac519891b4e6bbc2de8d65452244d" upstream="master">
+  <project name="mitchellj/meta-abaco-distro.git" path="openembedded/meta-abaco-distro.git" remote="abaco" revision="3d437acecc821873bcaf08b3312a3c97ae7261a2" upstream="master">
     <linkfile dest="init-new-build" src="../../.repo/manifests/scripts/init-new-build"/>
     <linkfile dest="scripts" src="../../.repo/manifests/scripts"/>
   </project>
-  <project name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" remote="abaco" revision="4ae702f17e1bbe214e981c5ea923e8039a87e22b" upstream="master"/>
+  <project name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" remote="abaco" revision="5eabea213ef3ee00fd34d43efafd1252cd61b9b9" upstream="master"/>
   <project name="openembedded/bitbake.git" revision="218e4b6418992588312b8ef5949b84ef43263d1a" upstream="master"/>
   <project name="openembedded/meta-openembedded.git" path="openembedded/meta-oe.git" revision="ac2a6d2b5d69937577effcb8bb2149651bac0176" upstream="master"/>
   <project name="openembedded/openembedded-core.git" path="openembedded/oe-core.git" revision="0b0a716b243491f026cb7b15e8f546325d6fa760" upstream="master"/>
