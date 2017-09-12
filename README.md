@@ -17,7 +17,7 @@ Initialise your build
 ```
 mkdir abaco-build
 cd abaco-build
-python2 ../repo init -u git@towgit01:mitchellj/manifests.git -m manifests/machine_branch.xml
+python2 ../repo init -u git@github.com:Abaco-Systems/abaco-bsp-manifests.git -m manifests-[release/dev]/machine_branch.xml
 python2 ../repo sync
 rm ../repo
 ```
