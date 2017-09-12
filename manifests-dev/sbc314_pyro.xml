@@ -10,7 +10,7 @@
     <linkfile dest="init-new-build" src="../../.repo/manifests/scripts/init-new-build"/>
     <linkfile dest="scripts" src="../../.repo/manifests/scripts"/>
   </project>
-  <project name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" remote="abaco" revision="f04a9128d6c5477a651b98144f69aab2d45c1d33" upstream="master"/>
+  <project name="mitchellj/meta-sbc314.git" path="openembedded/meta-sbc314.git" remote="abaco" revision="e05e25e5835d669349709e2c51df0e211529fa7d" upstream="master"/>
   <project name="openembedded/bitbake.git" revision="218e4b6418992588312b8ef5949b84ef43263d1a" upstream="master"/>
   <project name="openembedded/meta-openembedded.git" path="openembedded/meta-oe.git" revision="ac2a6d2b5d69937577effcb8bb2149651bac0176" upstream="master"/>
   <project name="openembedded/openembedded-core.git" path="openembedded/oe-core.git" revision="0b0a716b243491f026cb7b15e8f546325d6fa760" upstream="master"/>
