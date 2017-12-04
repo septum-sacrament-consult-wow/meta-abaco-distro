@@ -47,3 +47,16 @@ This will generate a new manifest file with the current set of git
 repository commit hashes locked. This file can then be copied to the
 manfiest folder with the filename as machine_branch.xml, commited
 and tagged with the release version.
+
+## Modifying
+You can used the GUI toaster to modify a recipe. See Yocto usage for [toaster](https://www.yoctoproject.org/tools-resources/projects/toaster) usage.
+```
+sudo apt install python3-pip
+pip3 install -r /<your-install-root>/abaco-build/openembedded/bitbake.git/toaster-requirements.txt
+. /<your-install-root>/abaco-build/openembedded/bitbake.git/bin/toaster
+...
+Please enter the path of your openembedded-core layer: /<your-install-root>/abaco-build/build-sbc314-t1042
+...
+```
+
+
