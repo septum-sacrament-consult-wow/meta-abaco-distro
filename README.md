@@ -48,6 +48,35 @@ repository commit hashes locked. This file can then be copied to the
 manfiest folder with the filename as machine_branch.xml, commited
 and tagged with the release version.
 
+## Booting
+After a successfull build you should find the following files in /<your-install-root>/abaco-build/build-sbc314-t1042/tmp-glibc/deploy/images/sbc314-t1042
+
+```
+core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz
+core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz.u-boot
+core-image-minimal-sbc314-t1042-20171124110726.rootfs.manifest
+core-image-minimal-sbc314-t1042-20171124110726.rootfs.tar.gz
+core-image-minimal-sbc314-t1042-20171124110726.testdata.json
+core-image-minimal-sbc314-t1042.ext2.gz
+core-image-minimal-sbc314-t1042.ext2.gz.u-boot
+core-image-minimal-sbc314-t1042.manifest
+core-image-minimal-sbc314-t1042.tar.gz
+core-image-minimal-sbc314-t1042.testdata.json
+modules--4.1+git0+f881c16a75-r0-sbc314-t1042-20171124110726.tgz
+modules-sbc314-t1042.tgz
+uImage
+uImage--4.1+git0+f881c16a75-r0-sbc314-t1042-20171124110726.bin
+uImage--4.1+git0+f881c16a75-r0-sbc314-t1042-20171124110726.dtb
+uImage-sbc314-t1042.bin
+uImage-sbc314-t1042.dtb
+```
+Boot your target into u-boot (this should be factory installed.
+
+Flash the images into RAM, example below is for the SBC314
+```
+TODO: Add example
+```
+
 ## Modifying
 You can used the GUI toaster to modify a recipe. See Yocto usage for [toaster](https://www.yoctoproject.org/tools-resources/projects/toaster) usage.
 ```
@@ -55,7 +84,7 @@ sudo apt install python3-pip
 pip3 install -r /<your-install-root>/abaco-build/openembedded/bitbake.git/toaster-requirements.txt
 . /<your-install-root>/abaco-build/openembedded/bitbake.git/bin/toaster
 ...
-Please enter the path of your openembedded-core layer: /<your-install-root>/abaco-build/build-sbc314-t1042
+Please enter the path of your openembedded-core layer: /<your-install-root>/abaco-build
 ...
 ```
 
