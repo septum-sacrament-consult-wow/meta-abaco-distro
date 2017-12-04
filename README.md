@@ -49,8 +49,7 @@ manfiest folder with the filename as machine_branch.xml, commited
 and tagged with the release version.
 
 ## Booting
-After a successfull build you should find the following files in /<your-install-root>/abaco-build/build-sbc314-t1042/tmp-glibc/deploy/images/sbc314-t1042
-
+After a successfull build you should find the following files in /<your-install-root>/abaco-build/build-sbc314-t1042/tmp-glibc/deploy/images/sbc314-t1042. This is for T1042 core-image-minimal build:
 ```
 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz
 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz.u-boot
@@ -70,7 +69,7 @@ uImage--4.1+git0+f881c16a75-r0-sbc314-t1042-20171124110726.dtb
 uImage-sbc314-t1042.bin
 uImage-sbc314-t1042.dtb
 ```
-Boot your target into u-boot (this should be factory installed.
+Boot your target into u-boot (this should be factory installed).
 
 Flash the images into RAM, example below is for the SBC314
 ```
@@ -87,5 +86,3 @@ pip3 install -r /<your-install-root>/abaco-build/openembedded/bitbake.git/toaste
 Please enter the path of your openembedded-core layer: /<your-install-root>/abaco-build
 ...
 ```
-
-
