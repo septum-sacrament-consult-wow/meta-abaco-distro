@@ -101,3 +101,25 @@ pip3 install -r /<your-install-root>/abaco-build/openembedded/bitbake.git/toaste
 Please enter the path of your openembedded-core layer: /<your-install-root>/abaco-build
 ...
 ```
+### XFCE Desktop Environment
+You will need to add the missing layers if you wish to use **XFCE**. Example below shown for SBC314 with QorIQ T1042 and instructions need to be modified for the T2081.
+```
+cd /<your-install-root>/abaco-build/openembedded
+git clone git://git.openembedded.org/meta-openembedded
+```
+Edit *\/\<your-install-root\>/abaco-build/conf/bblayers.conf* and add the following to **BBLAYERS  ?= "**
+```
+  ...
+  /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-xfce \
+  /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-gnome \
+  /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-multimedia \
+  /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-perl \
+  /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-python \
+  /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-networking \
+```
+Build your image
+```
+cd /<your-install-root>/abaco-build/build-sbc314-t1042
+bitbake core-image-minimal-xfce
+```
+Make a cup of tea and wait...
