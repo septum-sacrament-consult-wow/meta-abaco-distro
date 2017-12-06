@@ -72,8 +72,22 @@ uImage-sbc314-t1042.dtb
 Boot your target into u-boot (this should be factory installed).
 
 Flash the images into RAM, example below is for the SBC314
+
+### Network booting
+This is the most convinient way to boot the board when rebuilding the filesystem and kernel image.
 ```
-TODO: Add example
+setenv bootcmd "run boottftp"
+setenv boottftp "tftpb 1000000 uImage && tftpb e00000 uImage-sbc314-t1042.dtb && tftpb 4000000 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz.u-boot &&  bootm 1000000 4000000 e00000"
+setenv bootargs "console=ttyS0,115200n8"
+```
+Verify the settings use the print command:
+
+```
+bootcmd=run boottftp
+boottftp=tftpb 1000000 uImage && tftpb e00000 uImage-sbc314-t1042.dtb && tftpb 4000000 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz.u-boot &&  bootm 1000000 4000000 e00000
+ipaddr=192.168.1.240
+netmask=255.255.255.0
+serverip=192.168.1.97
 ```
 
 ## Modifying
