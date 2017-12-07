@@ -72,8 +72,8 @@ Boot your target into u-boot (this should be factory installed).
 
 Flash the images into RAM, example below is for the SBC314
 
-### Network booting
-This is the most convinient way to boot the board when rebuilding the filesystem and kernel image.
+### U-Boot (over network)
+This is the most convinient way to setup u-boot when rebuilding the filesystem and kernel image on a host machine.
 ```
 bootargs "console=tty0 console=ttyS0,115200n8"
 setenv bootcmd "run boottftp"
@@ -90,7 +90,8 @@ ipaddr=192.168.1.240
 netmask=255.255.255.0
 serverip=192.168.1.97
 ```
-
+### U-Boot (from flash / ssd)
+TBC ...
 ## Modifying
 You can used the GUI toaster to modify a recipe. See Yocto usage for [toaster](https://www.yoctoproject.org/tools-resources/projects/toaster) usage.
 ```
