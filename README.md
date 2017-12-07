@@ -118,6 +118,10 @@ Edit *\/\<your-install-root\>/abaco-build/conf/bblayers.conf* and add the follow
   /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-python \
   /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-networking \
 ```
+Add additional packages to the end of *\/\<your-install-root\>/abaco-build/conf/local.conf*
+```
+IMAGE_INSTALL_append = "eudev e2fsprogs openssh nano mesa-demos pciutils usbutils gcc xterm xclock xf86-input-evdev epiphany"
+```
 Build your image
 ```
 cd /<your-install-root>/abaco-build/build-sbc314-t1042
