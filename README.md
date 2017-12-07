@@ -1,3 +1,4 @@
+![Abaco stripe](https://github.com/ross-abaco/rtp-motion-estimation/blob/master/abaco/Abaco_background-1000x275.png?raw=true)
 ## Abaco Development Manifests Repo
 
 ---
@@ -128,3 +129,5 @@ cd /<your-install-root>/abaco-build/build-sbc314-t1042
 bitbake core-image-minimal-xfce
 ```
 Make a cup of tea and wait...
+![Abaco footer](https://github.com/ross-abaco/rtp-motion-estimation/blob/master/abaco/Abaco%20Footer1000x100.png)
+
