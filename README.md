@@ -1,8 +1,6 @@
 ![Abaco stripe](https://github.com/ross-abaco/rtp-motion-estimation/blob/master/abaco/Abaco_background-1000x275.png?raw=true)
 ## Abaco Development Manifests Repo
 
----
-
 Provides Google Repo manifest files to help with easy cloning of git
 repositories along with a set of helper scripts to aid building for Abaco
 platforms.
