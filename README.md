@@ -120,7 +120,7 @@ Edit *\/\<your-install-root\>/abaco-build/conf/bblayers.conf* and add the follow
 ```
 Add additional packages to the end of *\/\<your-install-root\>/abaco-build/conf/local.conf*
 ```
-IMAGE_INSTALL_append = "eudev e2fsprogs openssh nano mesa-demos pciutils usbutils gcc xterm xclock xf86-input-evdev epiphany"
+IMAGE_INSTALL_append = "exfat-utils e2fsprogs gptfdisk openssh nano mesa-demos pciutils usbutils gcc xterm xclock xf86-input-evdev"
 ```
 Build your image
 ```
