@@ -130,18 +130,32 @@ bitbake core-image-minimal-xfce
 Make a cup of tea and wait...
 
 #### Rebuilding the kernel
-To run menuconfig and rebuild the kernel:
+To run menuconfig and rebuild the kernel to add in the required modules.
 ```
 sudo apt-get install screen
 cd /<your-install-root>/abaco-build/build-sbc314-t1042
 bitbake virtual/kernel -c menuconfig
+```
+The resulting .config file needs to be located in */<your-install-root>/abaco-build/.config*
+```
 bitbake virtual/kernel -c cleansstate
-bitbake virtual/kernel -c compile -f; bitbake virtual/kernel
+bitbake virtual/kernel -c compile; bitbake virtual/kernel
 ```
-You might want to consider adding the follwing modules for XFDE4 desktop environment:
+You might want to consider adding the follwing modules for XFDE4 desktop environment to work with mouse and keyboard devices:
 ```
-INPUT_KEYBOARD=y
-INPUT_MOUSE=y
+CONFIG_INPUT_KEYBOARD=y
+CONFIG_INPUT_MOUSE=y
+CONFIG_USB_KBD=y
+CONFIG_USB_MOUSE=y
+CONFIG_INPUT_EVDEV=y
 ```
+#### XFCE4 execution
+When the OS is running start the desktop environment:
+```
+startxfce4
+```
+![XFCE4 Desktop](/images/PPC-Yocto-XFCE4.JPG)
+**XFCE4 running on the SBC314 (T1042) with XMCGA8 for graphics (Single 3U VPX Solution).**
+
 ![Abaco footer](https://github.com/ross-abaco/rtp-motion-estimation/blob/master/abaco/Abaco%20Footer1000x100.png)
 
