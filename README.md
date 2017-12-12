@@ -159,7 +159,7 @@ When the OS is running start the desktop environment:
 ```
 startxfce4
 ```
-![XFCE4 Desktop](/images/PPC-Yocto-XFCE4.JPG)
+![XFCE4 Desktop](/images/PPC-Yocto-XFCE4.png)
 **XFCE4 running on the SBC314 (T1042) with XMCGA8 for graphics (Single 3U VPX Solution).**
 
 ![Abaco footer](https://github.com/ross-abaco/rtp-motion-estimation/blob/master/abaco/Abaco%20Footer1000x100.png)
