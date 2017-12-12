@@ -80,23 +80,32 @@ Flash the images into RAM, example below is for the SBC314
 ### U-Boot (over network)
 This is the most convinient way to setup u-boot when rebuilding the filesystem and kernel image on a host machine.
 ```
-bootargs "console=tty0 console=ttyS0,115200n8"
+setenv argstftp "usdpaa_mem=512M ramdisk_size=90000000 console=tty0 console=ttyS0,115200n8"
+setenv boottftp 'usb start && tftpb 1000000 t1042/uImage && tftpb e00000 t1042/sbc314.dtb && tftpb 4000000 t1042/core-image-minimal-xfce.rootfs.ext2.gz.u-boot && setenv bootargs ${argstftp} && bootm 1000000 4000000 e00000'
 setenv bootcmd "run boottftp"
-setenv boottftp "tftpb 1000000 uImage && tftpb e00000 uImage-sbc314-t1042.dtb && tftpb 4000000 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz.u-boot &&  bootm 1000000 4000000 e00000"
-setenv bootargs "console=ttyS0,115200n8"
 ```
 Verify the settings use the print command:
 
 ```
-bootargs=console=tty0 console=ttyS0,115200n8
+argstftp=usdpaa_mem=512M ramdisk_size=90000000 console=tty0 console=ttyS0,115200n8
 bootcmd=run boottftp
-boottftp=tftpb 1000000 uImage && tftpb e00000 uImage-sbc314-t1042.dtb && tftpb 4000000 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz.u-boot &&  bootm 1000000 4000000 e00000
+boottftp=usb start && tftpb 1000000 t1042/uImage && tftpb e00000 t1042/sbc314.dtb && tftpb 4000000 t1042/core-image-minimal-xfce.rootfs.ext2.gz.u-boot && setenv bootargs ${argstftp} && bootm 1000000 4000000 e00000
 ipaddr=192.168.1.240
 netmask=255.255.255.0
 serverip=192.168.1.97
 ```
 ### U-Boot (from flash / ssd)
-TBC ...
+Format you SATA drive using the ramdisk image (fdisk to partition and mkfs.ext2 to format).
+
+Extract the filesystem to the disk preserving the file permissions:
+    tar -xf core-image-minimal-xfce.rootfs.ext2.gz -C /<mountpoint>
+Place your uImage(kernel) and the .dtb file in /boot
+
+As for TFTP booting but with the following changes to load from SATA:
+```
+setenv argsssd "root=/dev/sda1 console=tty0 console=ttyS0,115200n8"
+setenv bootssd 'sata init && usb start && ext2load sata 1:1 1000000 boot/uImage && ext2load sata 1:1 e00000 boot/sbc314.dtb && setenv bootargs ${argsssd} && bootm 1000000 - e00000'
+```
 ## Modifying
 You can used the GUI toaster to modify a recipe. See Yocto usage for [toaster](https://www.yoctoproject.org/tools-resources/projects/toaster) usage.
 ```
