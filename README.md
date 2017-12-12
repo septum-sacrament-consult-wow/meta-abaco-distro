@@ -1,11 +1,16 @@
 ![Abaco stripe](https://github.com/ross-abaco/rtp-motion-estimation/blob/master/abaco/Abaco_background-1000x275.png?raw=true)
 ## Abaco Development Manifests Repo
 
+
+Before you begin make sure your machine is setup correctly for Yocto. For CentOS / Ubuntu you can run:
+
+    sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib  build-essential chrpath socat libsdl1.2-dev xterm
+
+Setup your host build environmnet as per the instructions on the [Yocto Project Quickstart](https://www.yoctoproject.org/docs/1.8/yocto-project-qs/yocto-project-qs.html) page.
+
 Provides Google Repo manifest files to help with easy cloning of git
 repositories along with a set of helper scripts to aid building for Abaco
 platforms.
-
-Please setup your host build environmnet as per the instructions on the [Yocto Project Quickstart](https://www.yoctoproject.org/docs/1.8/yocto-project-qs/yocto-project-qs.html) page.
 
 ### Usage
 
