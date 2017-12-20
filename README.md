@@ -125,6 +125,7 @@ git clone git://git.openembedded.org/meta-openembedded
 Edit *\/\<your-install-root\>/abaco-build/conf/bblayers.conf* and add the following to **BBLAYERS  ?= "**
 ```
   ...
+  /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-oe \
   /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-xfce \
   /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-gnome \
   /<your-install-root>/abaco-build/openembedded/meta-openembedded/meta-multimedia \
