@@ -50,6 +50,7 @@ and image type:
 ![XFCE4 Desktop](/images/yocto-image-select.png)
 
 You can then build your preffered image:
+
     ./SOURCE_THIS
     bitbake core-image-minimal
 
