@@ -41,6 +41,10 @@ To start a build run
 
     ./init-new-build
 
+At this point you can select the processor variant:
+
+Image TBC
+
 ### Releasing
 
 To release, commit all repository changes and run the following command
