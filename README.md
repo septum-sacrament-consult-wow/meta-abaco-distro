@@ -43,7 +43,11 @@ To start a build run
 
 At this point you can select the processor variant:
 
-Image TBC
+![Board type](/images/yocto-board-select.png)
+
+and image type:
+
+![XFCE4 Desktop](/images/yocto-image-select.png)
 
 You can then build your preffered image:
     ./SOURCE_THIS
