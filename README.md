@@ -45,6 +45,12 @@ At this point you can select the processor variant:
 
 Image TBC
 
+You can then build your preffered image:
+    ./SOURCE_THIS
+    bitbake core-image-minimal
+
+You image will then proceed to build.
+
 ### Releasing
 
 To release, commit all repository changes and run the following command
