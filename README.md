@@ -6,11 +6,14 @@ Before you begin make sure your machine is setup correctly for Yocto. For CentOS
 
     sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib  build-essential chrpath socat libsdl1.2-dev xterm
 
-Setup your host build environmnet as per the instructions on the [Yocto Project Quickstart](https://www.yoctoproject.org/docs/1.8/yocto-project-qs/yocto-project-qs.html) page.
+Setup your host build environment as per the instructions on the [Yocto Project Quickstart](https://www.yoctoproject.org/docs/1.8/yocto-project-qs/yocto-project-qs.html) page.
 
 Provides Google Repo manifest files to help with easy cloning of git
 repositories along with a set of helper scripts to aid building for Abaco
 platforms.
+
+Note: Throughout this document the examples refer to the SBC314.
+For other BSPs, the equivalent board name should be provided e.g. PPC11A/ppc11a.
 
 ### Usage
 
@@ -49,7 +52,7 @@ and image type:
 
 ![XFCE4 Desktop](/images/yocto-image-select.png)
 
-You can then build your preffered image:
+You can then build your preferred image:
 
     ./SOURCE_THIS
     bitbake core-image-minimal
