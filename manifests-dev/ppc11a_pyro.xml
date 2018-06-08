@@ -12,6 +12,6 @@
   </project>
   <project name="meta-ppc11a.git" path="openembedded/meta-ppc11a.git" remote="abaco" revision="3e519b39957ddc9b9e7c9cd6597cd35033e5d6a5" upstream="master"/>
   <project name="openembedded/bitbake.git" revision="218e4b6418992588312b8ef5949b84ef43263d1a" upstream="master"/>
-  <project name="openembedded/meta-openembedded.git" path="openembedded/meta-oe.git" revision="ac2a6d2b5d69937577effcb8bb2149651bac0176" upstream="master"/>
-  <project name="openembedded/openembedded-core.git" path="openembedded/oe-core.git" revision="0b0a716b243491f026cb7b15e8f546325d6fa760" upstream="master"/>
+  <project name="openembedded/meta-openembedded.git" path="openembedded/meta-oe.git" revision="dfbdd28d206a74bf264c2f7ee0f7b3e5af587796" upstream="master"/>
+  <project name="openembedded/openembedded-core.git" path="openembedded/oe-core.git" revision="819aa151bd634122a46ffdd822064313c67f5ba5" upstream="master"/>
 </manifest>

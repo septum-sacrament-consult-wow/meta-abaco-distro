@@ -52,12 +52,30 @@ and image type:
 
 ![XFCE4 Desktop](/images/yocto-image-select.png)
 
-You can then build your preferred image:
+On completion, the script outputs the following message
+```
+Your build has been setup, please source the file "source_build" to
+get started.
 
-    ./SOURCE_THIS
+. /<your-install-root>/abaco-build/build-sbc314-t2081/SOURCE_THIS
+```
+The SOURCE_THIS script must be executed each time you want to work on this build.
+
+After executing the SOURCE_THIS script, you can then build your preferred image:
+```
     bitbake core-image-minimal
+```
+Your image will then proceed to build.
 
-You image will then proceed to build.
+With the abaco-distro the additional available images are:
+
+	abaco-base-image
+	abaco-core-image
+	abaco-core-image-x11
+	abaco-test-image
+	abaco-dev-image
+
+Each of these images builds and adds useful items on top of core-image-minimal.
 
 ### Releasing
 
@@ -67,11 +85,15 @@ To release, commit all repository changes and run the following command
 
 This will generate a new manifest file with the current set of git
 repository commit hashes locked. This file can then be copied to the
-manfiest folder with the filename as machine_branch.xml, commited
+manifest folder with the filename as machine_branch.xml, committed
 and tagged with the release version.
 
 ## Booting
-After a successfull build you should find the following files in /<your-install-root>/abaco-build/build-sbc314-t1042/tmp-glibc/deploy/images/sbc314-t1042. This is for T1042 core-image-minimal build:
+After a successfull build you should find the following files in
+```
+/<your-install-root>/abaco-build/build-sbc314-t1042/tmp-glibc/deploy/images/sbc314-t1042
+```
+This is for T1042 core-image-minimal build:
 ```
 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz
 core-image-minimal-sbc314-t1042-20171124110726.rootfs.ext2.gz.u-boot
@@ -112,11 +134,14 @@ ipaddr=192.168.1.240
 netmask=255.255.255.0
 serverip=192.168.1.97
 ```
+N.B. Rememeber to save the environment.
 ### U-Boot (from flash / ssd)
 Format you SATA drive using the ramdisk image (fdisk to partition and mkfs.ext2 to format).
 
 Extract the filesystem to the disk preserving the file permissions:
+```
     tar -xf core-image-minimal-xfce.rootfs.ext2.gz -C /<mountpoint>
+```
 Place your uImage(kernel) and the .dtb file in /boot
 
 As for TFTP booting but with the following changes to load from SATA:
@@ -135,7 +160,7 @@ Please enter the path of your openembedded-core layer: /<your-install-root>/abac
 ...
 ```
 ### XFCE Desktop Environment
-You will need to add the missing layers if you wish to use **XFCE**. Example below shown for SBC314 with QorIQ T1042 and instructions need to be modified for the T2081.
+You will need to add the missing layers if you wish to use **XFCE**. Example below shown for SBC314 with QoriQ T1042 and instructions need to be modified for the T2081.
 ```
 cd /<your-install-root>/abaco-build/openembedded
 git clone git://git.openembedded.org/meta-openembedded
@@ -169,7 +194,7 @@ sudo apt-get install screen
 cd /<your-install-root>/abaco-build/build-sbc314-t1042
 bitbake virtual/kernel -c menuconfig
 ```
-The resulting .config file needs to be located in */<your-install-root>/abaco-build/.config*
+The resulting .config file needs to be located in */\<your-install-root>/abaco-build/.config*
 ```
 bitbake virtual/kernel -c cleansstate
 bitbake virtual/kernel -c compile; bitbake virtual/kernel
