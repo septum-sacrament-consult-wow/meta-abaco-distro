@@ -6,7 +6,7 @@ Before you begin make sure your machine is setup correctly for Yocto. For CentOS
 
     sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib  build-essential chrpath socat libsdl1.2-dev xterm
 
-Setup your host build environment as per the instructions on the [Yocto Project Quickstart](https://www.yoctoproject.org/docs/1.8/yocto-project-qs/yocto-project-qs.html) page.
+Setup your host build environment as per the instructions on the [Yocto Project Quickstart](https://www.yoctoproject.org/docs/2.3.3/yocto-project-qs/yocto-project-qs.html) page.
 
 Provides Google Repo manifest files to help with easy cloning of git
 repositories along with a set of helper scripts to aid building for Abaco
@@ -35,8 +35,7 @@ i.e For SBC314 use:
 python2 ../repo init -u https://github.com/Abaco-Systems/abaco-bsp-manifests.git -m manifests-dev/sbc314_pyro.xml
 ```
 
-You should now have a directory heirarchy with all the required Abaco platform
-repos checked out.
+You should now have a directory heirarchy with all the required platform repos checked out.
 
 ### Building
 
@@ -134,7 +133,7 @@ ipaddr=192.168.1.240
 netmask=255.255.255.0
 serverip=192.168.1.97
 ```
-N.B. Rememeber to save the environment.
+N.B. Remember to save the environment.
 ### U-Boot (from flash / ssd)
 Format you SATA drive using the ramdisk image (fdisk to partition and mkfs.ext2 to format).
 
