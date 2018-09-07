@@ -236,23 +236,18 @@ def parse_distro(path):
 
 def find_var_file(file_path, var):
 
+	layers = []
+
 	layer_conf = open(file_path, "r")
 
-	found = 0
-
 	for line in layer_conf:
-		if var in line:
-			found = 1
-			break
+		if re.search ("^ *" + var, line):
+			split_string = re.findall(r'"([^"]*)"', line)[0].split(" ")
+			layers.extend(split_string)
 
 	layer_conf.close()
 
-	if found == 0:
-		return None
-
-	split_string = re.findall(r'"([^"]*)"', line)[0].split(" ")
-
-	return split_string 
+	return layers
 
 def find_dirs(path, name):
 

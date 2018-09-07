@@ -45,7 +45,7 @@ def main():
 			print_error("Some layers could not be added, check dependant layers "
 				"exist, and for circular dependancies")
 			print_info("Layers added: {}".format(added_layers))
-			print_info("Layers failed: {}".format(layers))
+			print_error("Layers failed: {}".format(layers))
 			exit(1)
 
 	print_info("All layers sucessfully added")	
