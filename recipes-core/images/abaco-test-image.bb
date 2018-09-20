@@ -6,7 +6,4 @@ IMAGE_INSTALL += " \
 	packagegroup-core-full-cmdline \
 	vim \
 	openssh-sftp-server \
-	bash \
-	i2c-tools \
-	ethtool \
 "

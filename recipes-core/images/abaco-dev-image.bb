@@ -7,4 +7,5 @@ IMAGE_FEATURES += " dev-pkgs"
 IMAGE_INSTALL += " \
 	git \
 	packagegroup-core-buildessential \
+	packagegroup-core-device-devel \
 "

@@ -6,6 +6,6 @@ SDK_VERSION := "${DISTRO_VERSION}"
 VENDOR = "-abaco"
 SDK_VENDOR := "${VENDOR}sdk"
 
-DISTRO_FEATURES_ABACO = "acl argp ext2 largefile usbgadget usbhost xattr nfs pci"
+DISTRO_FEATURES_ABACO = "acl argp ext2 largefile nfs pci usbgadget usbhost xattr"
 
 DISTRO_FEATURES = "${DISTRO_FEATURES_ABACO} ${DISTRO_FEATURES_LIBC_DEFAULT}"
