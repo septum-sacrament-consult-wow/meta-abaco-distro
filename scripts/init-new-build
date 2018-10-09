@@ -36,7 +36,7 @@ rm conf/local.conf.bk
 
 cat <<EOF
 
-Your build has been setup, please source the file "source_build" to
+Your build has been setup, please source the file "SOURCE_THIS" to
 get started.
 
 . ${BUILDDIR}/SOURCE_THIS
