@@ -33,6 +33,17 @@ echo "" >> conf/local.conf
 cat conf/local.conf.bk >> conf/local.conf
 rm conf/local.conf.bk
 
+cat <<ABACO >> SOURCE_THIS
+cat <<EXTRA
+
+For Abaco Systems builds, targets are:
+	abaco-base-image
+	abaco-core-image
+	abaco-core-image-x11
+	abaco-test-image
+	abaco-dev-image
+EXTRA
+ABACO
 
 cat <<EOF
 
