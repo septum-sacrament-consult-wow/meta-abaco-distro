@@ -8,6 +8,7 @@ IMAGE_INSTALL += " \
 	ethtool \
 	iperf3 \
 	mtd-utils \
+	nano \
 	tftp-hpa \
 	util-linux \
 	wget \
