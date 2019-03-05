@@ -2,7 +2,7 @@ require abaco-test-image.bb
 
 DESCRIPTION = "Abaco Dev Image"
 
-IMAGE_FEATURES += " dev-pkgs"
+IMAGE_FEATURES += " dev-pkgs doc-pkgs"
 
 IMAGE_INSTALL += " \
 	kernel-devsrc \
