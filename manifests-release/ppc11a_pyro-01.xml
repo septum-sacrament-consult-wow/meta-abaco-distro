@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="http://github.com/Abaco-Systems" name="abaco"/>
+  <remote fetch="http://github.com" name="github"/>
+  
+  <default remote="github" revision="master" sync-j="4"/>
+  
+  <project name="Freescale/meta-freescale.git" path="openembedded/meta-freescale.git" revision="54544ad1ff48274463977b14c7872872d770ce33"/>
+  <project name="meta-abaco-distro.git" path="openembedded/meta-abaco-distro.git" remote="abaco" revision="d1769c4fc011405bf693f35588eeb5581c5d11e5" upstream="master">
+    <linkfile dest="init-new-build" src="../../.repo/manifests/scripts/init-new-build"/>
+    <linkfile dest="scripts" src="../../.repo/manifests/scripts"/>
+  </project>
+  <project name="meta-ppc11a.git" path="openembedded/meta-ppc11a.git" remote="abaco" revision="f52a8e82a855bdbc4033cb33f688acd9c8e2dd8e" upstream="master"/>
+  <project name="openembedded/bitbake.git" revision="218e4b6418992588312b8ef5949b84ef43263d1a" upstream="master"/>
+  <project name="openembedded/meta-openembedded.git" path="openembedded/meta-oe.git" revision="9eaebc6e783f1394bb5444326cd05a976b3122e9" upstream="master"/>
+  <project name="openembedded/openembedded-core.git" path="openembedded/oe-core.git" revision="819aa151bd634122a46ffdd822064313c67f5ba5" upstream="master"/>
+</manifest>
